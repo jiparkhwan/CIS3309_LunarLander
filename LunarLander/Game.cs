@@ -48,7 +48,7 @@ namespace LunarLander
         /// </summary>
         Pen landingPen;
         HashSet<GameKeys> keys;
-        private bool Paused { get; set; }
+        public bool Paused { get; set; }
         //Bitmap landerBmp;
         #endregion
 

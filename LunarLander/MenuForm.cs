@@ -15,6 +15,8 @@ namespace LunarLander
         public MenuForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(590, 280);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -28,6 +30,12 @@ namespace LunarLander
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnInstructions_Click(object sender, EventArgs e)
+        {
+            Instructions instructions = new Instructions();
+            instructions.ShowDialog();
         }
     }
 }

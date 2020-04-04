@@ -19,3 +19,4 @@ C:\Users\Garu\Documents\Temple\Component Based Software Design\Assignments\testL
 C:\Users\Garu\Documents\Temple\Component Based Software Design\Assignments\testLunarLander\LunarLander\LunarLander\obj\Debug\LunarLander.exe
 C:\Users\Garu\Documents\Temple\Component Based Software Design\Assignments\testLunarLander\LunarLander\LunarLander\obj\Debug\LunarLander.pdb
 C:\Users\Garu\Documents\Temple\Component Based Software Design\Assignments\testLunarLander\LunarLander\LunarLander\obj\Debug\LunarLander.MenuForm.resources
+C:\Users\Garu\Documents\Temple\Component Based Software Design\Assignments\testLunarLander\LunarLander\LunarLander\obj\Debug\LunarLander.Instructions.resources

@@ -9,7 +9,7 @@ namespace LunarLander
     {
         public Module()
         {
-            Fuel = 1000;
+            Fuel = 300;
             X = 800;
             Y = 200;
         }

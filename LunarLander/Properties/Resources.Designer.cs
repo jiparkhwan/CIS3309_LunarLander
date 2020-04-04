@@ -63,6 +63,16 @@ namespace LunarLander.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backspace {
+            get {
+                object obj = ResourceManager.GetObject("backspace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lander {
             get {
                 object obj = ResourceManager.GetObject("lander", resourceCulture);

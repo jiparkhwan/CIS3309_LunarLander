@@ -36,16 +36,17 @@
             this.directionLbl2 = new System.Windows.Forms.Label();
             this.directionLbl3 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.btnInstructions = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStart.Location = new System.Drawing.Point(249, 352);
+            this.btnStart.Location = new System.Drawing.Point(247, 384);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(133, 36);
-            this.btnStart.TabIndex = 0;
+            this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -54,7 +55,7 @@
             // 
             this.lblInstruction.AutoSize = true;
             this.lblInstruction.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruction.Location = new System.Drawing.Point(223, 326);
+            this.lblInstruction.Location = new System.Drawing.Point(221, 358);
             this.lblInstruction.Name = "lblInstruction";
             this.lblInstruction.Size = new System.Drawing.Size(185, 12);
             this.lblInstruction.TabIndex = 1;
@@ -114,13 +115,28 @@
             // 
             this.exitBtn.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.exitBtn.Location = new System.Drawing.Point(279, 394);
+            this.exitBtn.Location = new System.Drawing.Point(277, 426);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(70, 36);
-            this.exitBtn.TabIndex = 7;
+            this.exitBtn.TabIndex = 2;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // btnInstructions
+            // 
+            this.btnInstructions.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnInstructions.FlatAppearance.BorderSize = 0;
+            this.btnInstructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstructions.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstructions.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnInstructions.Location = new System.Drawing.Point(247, 300);
+            this.btnInstructions.Name = "btnInstructions";
+            this.btnInstructions.Size = new System.Drawing.Size(133, 37);
+            this.btnInstructions.TabIndex = 0;
+            this.btnInstructions.Text = "How To Play";
+            this.btnInstructions.UseVisualStyleBackColor = false;
+            this.btnInstructions.Click += new System.EventHandler(this.btnInstructions_Click);
             // 
             // MenuForm
             // 
@@ -128,6 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(642, 482);
+            this.Controls.Add(this.btnInstructions);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.directionLbl3);
             this.Controls.Add(this.directionLbl2);
@@ -155,6 +172,7 @@
         private System.Windows.Forms.Label directionLbl2;
         private System.Windows.Forms.Label directionLbl3;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button btnInstructions;
     }
 }
 

@@ -23,6 +23,8 @@ namespace LunarLander
         public LunarLander()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(150, 100);
         }
 
         //Creates an instance of the game class
@@ -49,6 +51,7 @@ namespace LunarLander
                         player.reset();
                     }
                     game = new Game(player);
+                    picInstructions.Enabled = true;
                     break;
                 case Keys.Back:
                     this.Close();
@@ -77,6 +80,20 @@ namespace LunarLander
             game.Update(new TimeSpan(updateTimer.Interval * 10000));
             //Displays and applys all the updated information to the screen
             gameScreen.Image = game.Draw();
+            if (game.Reason == Game.PauseReason.Crashed)
+            {
+                picInstructions.Enabled = false;
+            }
+        }
+
+        private void instructions_Click(object sender, EventArgs e)
+        {   
+            game.Reason = Game.PauseReason.Paused;
+            game.Paused = true;
+
+            Instructions instructions = new Instructions();
+            instructions.ShowDialog();
+            game.Paused = false;
         }
     }
 }
