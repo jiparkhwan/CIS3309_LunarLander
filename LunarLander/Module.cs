@@ -10,8 +10,8 @@ namespace LunarLander
         public Module()
         {
             Fuel = 1000;
-            X = 200;
-            Y = 50;
+            X = 800;
+            Y = 200;
         }
 
         public const float MaxLandingSpeed = 15;

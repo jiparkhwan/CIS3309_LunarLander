@@ -13,7 +13,8 @@ namespace LunarLander
         private static String imageName = "lander";
         public Bitmap sprite = (Bitmap)Properties.Resources.ResourceManager.GetObject(imageName);
         Terrain terrain = new Terrain();
-        public Game()
+        Player newPlayer;
+        public Game(Player newPlayer)
         {
             bmp = new Bitmap(1600, 1000);
             statsFont = new Font(FontFamily.GenericMonospace, 25, GraphicsUnit.Pixel);
@@ -26,6 +27,7 @@ namespace LunarLander
             keys = new HashSet<GameKeys>();
             whitePen = Pens.White;
             landingPen = new Pen(Brushes.White, 3);
+            this.newPlayer = newPlayer;
             //load lander
 
 
@@ -37,7 +39,7 @@ namespace LunarLander
         #endregion
 
         #region fields
-        private PauseReason Reason;
+        public PauseReason Reason;
         Font statsFont;
         Bitmap bmp;
         Pen whitePen;
@@ -109,7 +111,7 @@ namespace LunarLander
             return keys.Contains(key);
         }
         #endregion
-
+        
         public void Update(TimeSpan ts)
         {
             //check pause key
@@ -157,15 +159,14 @@ namespace LunarLander
                 m.Reset();
                 g.Transform = m;
 
-
-
+                
                 //draw stats
                 const int posStatX = 0;
                 g.DrawString(DateTime.Now.ToLongTimeString(), statsFont, Brushes.White, (bmp.Width) / 2, 0);
                 g.DrawString("Fuel: " + Module.Fuel, statsFont, Brushes.White, posStatX, 0);
-                g.DrawString(string.Format("Lander: x={0:0.00} y={1:0.00} Rotation={2:0.00}", Module.X, Module.Y, ConvertAngle.RadiansToDegrees(Module.Rotation)), statsFont, Brushes.White, posStatX, 30);
-                g.DrawString(string.Format("Speed: x={0:0.00} y={1:0.00} Rotation={2:0.00}", Module.sX, Module.sY, 0), statsFont, Brushes.White, posStatX, 60);
-
+                g.DrawString(string.Format("Lander: x={0:0.00} y={1:0.00}", Module.X, Module.Y, ConvertAngle.RadiansToDegrees(Module.Rotation)), statsFont, Brushes.White, posStatX, 30);
+                g.DrawString(string.Format("Speed: x={0:0.00} y={1:0.00}", Module.sX, Module.sY, 0), statsFont, Brushes.White, posStatX, 60);
+                g.DrawString("Score:   " + newPlayer.getScore().ToString(), statsFont, Brushes.White, 1000, 10);
                 if (Paused) //or game over
                     g.DrawString(Reason.ToString(), new Font(statsFont, FontStyle.Bold), Brushes.White, (bmp.Width) / 2, (bmp.Height) / 2 - 200);
             }
@@ -173,7 +174,7 @@ namespace LunarLander
         }
 
 
-        enum PauseReason
+        public enum PauseReason
         {
             Paused, Crashed, Landed
         }

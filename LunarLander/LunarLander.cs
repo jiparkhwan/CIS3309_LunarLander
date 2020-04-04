@@ -26,8 +26,10 @@ namespace LunarLander
         }
 
         //Creates an instance of the game class
-        Game game = new Game();
+        static Player player = new Player();
 
+        Game game = new Game(player);
+        
         /*
          * KeyDown has to be registered in a hash set so that multiple keys can be read at once
          * 
@@ -38,7 +40,15 @@ namespace LunarLander
             {
                 //Creates a new instance of the game class which will restart the game and create new terrain
                 case Keys.Escape:
-                    game = new Game();
+                    if (game.Reason == Game.PauseReason.Landed)
+                    {
+                        player.landed();
+                    }
+                    else
+                    {
+                        player.reset();
+                    }
+                    game = new Game(player);
                     break;
                 case Keys.Back:
                     this.Close();

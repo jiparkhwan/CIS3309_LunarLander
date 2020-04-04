@@ -16,7 +16,7 @@ namespace LunarLander
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LunarLander());
+            Application.Run(new MenuForm());
         }
     }
 }
