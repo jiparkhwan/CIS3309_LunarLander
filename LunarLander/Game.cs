@@ -6,39 +6,45 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
+/*
+ * Gary Mejia and Ji Hwan Park
+ * CIS 3309
+ * Date Due: 4/5/2020
+ * 
+ * Program Identification
+ * LunarLander-Game Class
+ * 
+ * This class controls the entire game.  
+ */
 namespace LunarLander
 {
     class Game
     {
         private static String imageName = "lander";
-        public Bitmap sprite = (Bitmap)Properties.Resources.ResourceManager.GetObject(imageName);
-        Terrain terrain = new Terrain();
-        Player newPlayer;
+        public Bitmap sprite = (Bitmap)Properties.Resources.ResourceManager.GetObject(imageName);           //Loads sprite from resources
+
+        Terrain terrain = new Terrain();                                                //Creates new terrain
+        Player newPlayer;                                                                
         public Game(Player newPlayer)
         {
-            bmp = new Bitmap(1600, 1000);
-            statsFont = new Font(FontFamily.GenericMonospace, 25, GraphicsUnit.Pixel);
-            terrain = new Terrain();
-            terrain.TotalHeight = 1600;
-            terrain.GenerateTerrain();
-            Module = new Module();
-            Module.Game = this;
-            Paused = false;
-            keys = new HashSet<GameKeys>();
-            whitePen = Pens.White;
-            landingPen = new Pen(Brushes.White, 3);
-            this.newPlayer = newPlayer;
-            //load lander
-
-
-            Module.Sprite = sprite;
+            bmp = new Bitmap(1600, 1000);                                               //Sets the size to x:1600   y:1000                                    
+            statsFont = new Font(FontFamily.GenericMonospace, 25, GraphicsUnit.Pixel);  //Fonts used for displaying screen text
+            terrain = new Terrain();                                                    //Creates a terrain instance
+            terrain.TotalHeight = 1600;                                                 //sets the height of the terrain
+            terrain.GenerateTerrain();                                                  //Creates the points used to map the terrain
+            Module = new Module();                                                      //New module(Lander) instance
+            Module.Game = this;                                                         //Passes the current instance of the game to the module. Used to access hashset                                                         
+            Paused = false;                                                             //Current state of the game. Paused or not Paused
+            keys = new HashSet<GameKeys>();                                             //Gamekeys hashset
+            whitePen = Pens.White;                                                      //color for lines connecting terrains points
+            landingPen = new Pen(Brushes.White, 3);                                     //Landing strip lines
+            this.newPlayer = newPlayer;                                                 //Saves player instance passed from the lunar lander class
+            Module.Sprite = sprite;                                                     //Passes the bitmap of the sprite to the module class
         }
-        #region public properties
-        //public Ground Ground { get; set; }
+        
+        
         public Module Module { get; set; }
-        #endregion
-
-        #region fields
+        
         public PauseReason Reason;
         Font statsFont;
         Bitmap bmp;
@@ -50,9 +56,7 @@ namespace LunarLander
         HashSet<GameKeys> keys;
         public bool Paused { get; set; }
         //Bitmap landerBmp;
-        #endregion
 
-        #region events
         /// <summary>
         /// Called on key down
         /// </summary>
@@ -110,7 +114,6 @@ namespace LunarLander
             //return ((KeysPressed & key) == key);
             return keys.Contains(key);
         }
-        #endregion
         
         public void Update(TimeSpan ts)
         {
